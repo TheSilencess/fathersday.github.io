@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regalos Día del Padre</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdf6ec;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #3b3b3b;
+    }
+
+    .carta {
+      background: #fff8e1;
+      border: 2px dashed #d4a373;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .carta h2 {
+      color: #a05a2c;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .carta p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: justify;
+      color: #4b3c2b;
+    }
+
+    .certificado {
+      border: 5px double #444;
+      width: 80%;
+      max-width: 800px;
+      padding: 2rem;
+      background: white;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .certificado h2 {
+      font-size: 2em;
+      color: #1f4e79;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      background: #1f4e79;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    canvas {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¡Feliz Día del Padre!</h1>
+
+  <div class="carta">
+    <h2>Querido Papá</h2>
+    <p>
+      Hoy quiero agradecerte por cada momento, por cada sacrificio, por cada sonrisa que me diste cuando más lo necesitaba.
+      Eres mi héroe, mi guía, y el ejemplo de la persona que quiero ser. Tu amor y tu fortaleza me han formado y me han
+      inspirado a seguir adelante, incluso en los momentos más difíciles.
+    </p>
+    <p>
+      Gracias por estar ahí, por enseñarme con el corazón y por demostrarme todos los días que el amor de un padre es uno
+      de los más grandes tesoros de la vida.
+    </p>
+    <p style="text-align:right;">Con todo mi cariño,<br>Tu hijo Jeremy <3</p>
+  </div>
+
+  <div class="certificado" id="cert">
+    <h2>Certificado al Mejor Papá del Mundo</h2>
+    <p>Otorgado a:</p>
+    <h1>Jorge Armando Alvarez Padilla</h1>
+    <p>Por ser un ejemplo de amor, fuerza y sabiduría. ¡Te amamos!</p>
+    <button class="btn" onclick="descargarCertificado()">Descargar Certificado</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    function descargarCertificado() {
+      html2canvas(document.getElementById("cert")).then(canvas => {
+        const a = document.createElement("a");
+        a.href = canvas.toDataURL("image/png");
+        a.download = "certificado_dia_padre.png";
+        a.click();
+      });
+    }
+  </script>
+</body>
+</html>
